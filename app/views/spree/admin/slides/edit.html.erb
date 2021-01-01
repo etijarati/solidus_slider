@@ -1,14 +1,16 @@
 <% content_for :page_title do %>
-  <%= t('solidus_slider.editing_slide') %>
+  <%= t('spree.edit_slide') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to t('solidus_slider.back_to_slides'), spree.admin_slides_path, :icon => 'arrow-left' %>
+  <%= button_link_to t('spree.back'), spree.admin_store_slides_path(@store), icon: 'arrow-left' %>
 <% end %>
+
+<%= render partial: 'spree/admin/shared/general_tabs', locals: { current: 'Slider' } %>
 
 <%= render 'spree/shared/error_messages', :target => @slide %>
 
-<%= form_for [:admin, @slide], :html => { :multipart => true } do |f| %>
+<%= form_for [:admin, @store, @slide], :html => { :multipart => true } do |f| %>
   <fieldset class="no-border-top">
     <%= render :partial => 'form', :locals => { :f => f } %>
 

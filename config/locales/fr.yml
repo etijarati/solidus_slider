@@ -1,0 +1,22 @@
+fr:
+  spree:
+    back_to_slides: Retour
+    edit_slide: Modifier item
+    new_slide: Nouveau item
+    preview: Preview
+
+  activerecord:
+    attributes:
+      spree/slide:
+        body: Contenu
+        text_url: Text du button
+        link_url: Lien du button
+        image: Image
+        published: Publié
+        location: Emplacement
+      spree/slide/location:
+        slider: Banner
+        products: Produits
+        instegram: Instegram
+    models:
+      spree/slide: Page d'accueil

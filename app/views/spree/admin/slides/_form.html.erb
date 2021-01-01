@@ -1,78 +1,43 @@
 <div class="row">
-  <div class="col-md-2">
-    <%= f.field_container :position do %>
-      <%= f.label :position, t(:position) %>
-      <%= f.number_field :position, :class => 'fullwidth form-control' %>
-    <% end %>
-  </div>
-
-  <div class="col-md-10">
-    <div class="field checkbox">
-      <label>
-        <%= f.check_box :published, class: "form-control" %>
-        <%= t(:published) %>
-      </label>
-    </div>
-  </div>
-
-  <div class="col-md-10">
-    <div class="field checkbox">
-      <label>
-        <%= f.check_box :show_caption, class: "form-control" %>
-        <%= t(:show_caption) %>
-      </label>
-    </div>
-  </div>
-
-  <div class="col-md-12">
-    <%= f.field_container :product_id do %>
-      <%= label_tag :product_id, t(:product) %><br>
-      <%= hidden_field_tag 'slide[product_id]', f.object.product_id.to_s, :class => "product_picker fullwidth" %>
-    <% end %>
-  </div>
-
   <div class="col-md-6">
-    <%= f.field_container :name do %>
-      <%= f.label :name, t(:name) %><br>
-      <%= f.text_field :name, :class => 'fullwidth form-control', :placeholder => t('solidus_slider.placeholder_name') %>
+    <%= f.field_container :location do %>
+      <%= f.label :location %>
+      <%= f.select :location, options_for_select(Spree::Slide::LOCATION_LIST.collect { |location| [Spree::Slide.human_attribute_name("location.#{location}"), location] }, f.object.location), { include_blank: t('spree.match_choices.none') }, { class: 'custom-select' } %>
     <% end %>
-  </div>
 
-  <div class="col-md-6">
+    <%= f.field_container :text_url do %>
+      <%= f.label :text_url %>
+      <%= f.text_field :text_url, class: 'fullwidth' %>
+    <% end %>
+
     <%= f.field_container :link_url do %>
-      <%= f.label :link_url, t(:link_url) %><br>
-      <%= f.text_field :link_url, :class => 'fullwidth form-control', :placeholder => t('solidus_slider.placeholder_link_url') %>
+      <%= f.label :link_url %><br>
+      <%= f.text_field :link_url, class: 'fullwidth' %>
     <% end %>
-  </div>
 
-  <div class="col-md-6">
-    <%= render 'spree/admin/slides/edit_slider_locations', f: f %>
-  </div>
-
-  <div class="col-md-12">
     <%= f.field_container :body do %>
-      <%= f.label :body, t(:body) %><br>
-      <%= f.text_area :body, {:cols => 60, :rows => 4, :class => 'fullwidth form-control'} %>
+      <%= f.label :body %><br>
+      <%= f.text_area :body, { cols: 60, rows: 4, :class => 'fullwidth' } %>
     <% end %>
-  </div>
 
-  <div class="col-md-6">
+    <%= f.field_container :published do %>
+      <label>
+        <%= f.check_box :published %>
+        <%= Spree::Store.human_attribute_name(:published) %>
+      </label>
+    <% end %>
+
     <%= f.field_container :image do %>
-      <%= f.label :image, t(:image) %> <i>(<%= t('solidus_slider.image_tip') %>)</i><br>
+      <%= f.label :image %>
       <%= f.file_field :image %>
-    <% end %>
-  </div>
 
-  <div class="col-md-6">
-    <%= f.field_container :image do %>
-      <% if f.object.image? %>
+      <% if f.object.image.attached? %>
         <p>
-          <%= label_tag t(:preview) %>
+          <%= label_tag t('spree.preview') %>
           <br>
-          <%= image_tag f.object.image, class: 'img-responsive' %>
+          <%= image_tag main_app.url_for(f.object.image.variant(resize_to_limit: [600, 500])), class: 'img-responsive' %>
         </p>
       <% end %>
     <% end %>
   </div>
-
 </div>

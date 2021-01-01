@@ -1,2 +1,4 @@
 <!-- insert_bottom "[data-hook='admin_configurations_sidebar_menu']" -->
-<%= configurations_sidebar_menu_item t('solidus_slider.config_name'), admin_slides_path %>
+<%= content_tag :li, class: ('active' if current == 'Slider') do %>
+  <%= link_to Spree::Slide.model_name.human, admin_store_slides_path(@store) %>
+<% end if can?(:edit, Spree::Slide) %>

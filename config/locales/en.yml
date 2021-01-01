@@ -1,37 +1,22 @@
 en:
-  next: "Next"
-  previous: "Previous"
-  name: "Name"
-  body: "Body"
-  link_url: "Link URL"
-  image: "Image"
-  preview: "Preview"
-  image_file_name: "Image file name"
-  published: "Published"
-  show_caption: "Show Caption"
-  position: "Position"
-  y: "Yes"
-  n: "No"
+  spree:
+    back_to_slides: Back to items
+    edit_slide: Edit item
+    new_slide: New item
+    preview: Preview
 
   activerecord:
+    attributes:
+      spree/slide:
+        body: Content
+        text_url: Text button
+        link_url: Lien button
+        image: Image
+        published: Published
+        location: Emplacement
+      spree/slide/location:
+        slider: Banner
+        products: Products
+        instegram: Instegram
     models:
-      spree/slide: "Slide"
-
-  solidus_slider:
-    config_name: "Solidus Slider"
-    config_description: "Manage Solidus Slider contents"
-    title: "Slides"
-    new_slide: "New Slide"
-    editing_slide: "Editing Slide"
-    back_to_slides: "Back to Slides"
-    placeholder_name: "Leave blank to use product name"
-    placeholder_link_url: "Leave blank to use product url"
-    image_tip: "Default first product image"
-
-  solidus_slider_locations:
-    config_name: "Solidus Slider Locations"
-    config_description: "Manage Solidus Slider Locations"
-    title: "Slider Locations"
-    new_location: "New Location"
-    editing_location: "Editing Location"
-    back_to_locations: "Back to Locations"
+      spree/slide: Home page

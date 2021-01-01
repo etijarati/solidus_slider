@@ -4,12 +4,12 @@ Gem::Specification.new do |s|
   s.name        = 'solidus_slider'
   s.version     = '1.2.5'
   s.summary     = 'Solidus Slider extension'
-  s.description = 'Adds a slider to the homepage'
+  s.description = 'Adds a slider to custom locations'
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author            = 'Saman Mohamadi'
-  s.email             = 'mohamadi.saman@gmail.com'
-  s.homepage          = 'https://github.com/samanmohamadi/solidus_slider'
+  s.author            = 'etijarati'
+  s.email             = 'contact@etijarati.com'
+  s.homepage          = 'https://github.com/etijarati/solidus_slider'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
