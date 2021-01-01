@@ -17,6 +17,6 @@ en:
       spree/slide/location:
         slider: Banner
         products: Products
-        instegram: Instegram
+        instagram: Instagram
     models:
       spree/slide: Home page
